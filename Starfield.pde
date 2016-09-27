@@ -1,7 +1,7 @@
 //your code here
 void setup()
 {
-	//your code here
+	size(500,500);
 }
 void draw()
 {
@@ -9,7 +9,16 @@ void draw()
 }
 class NormalParticle
 {
-	//your code here
+	double x, y, dTheta, dSpeed;
+	int clr;
+	NormalParticle()
+	{
+		x=0;
+		y=0;
+		dTheta=Math.PI*2*Math.random();
+		dSpeed=Math.random()*10;
+		clr=Mycoor
+	}
 }
 interface Particle
 {
