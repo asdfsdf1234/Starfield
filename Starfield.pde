@@ -5,7 +5,10 @@ void setup()
 }
 void draw()
 {
-	//your code here
+	NormalParticle one 	= new NormalParticle();
+
+	one.show();
+	one.move();
 }
 class NormalParticle
 {
@@ -17,7 +20,18 @@ class NormalParticle
 		y=0;
 		dTheta=Math.PI*2*Math.random();
 		dSpeed=Math.random()*10;
-		clr=Mycoor
+		clr=color(0);
+	}
+
+	void show()
+	{
+		ellipse((float)x,(float)y,2,2);
+	}
+
+	void move()
+	{
+		x=x+(Math.cos(dTheta)*dSpeed);
+		y=y+(Math.sin(dTheta)*dSpeed);
 	}
 }
 interface Particle
