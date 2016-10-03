@@ -1,14 +1,24 @@
-NormalParticle one 	= new NormalParticle();
+NormalParticle[] one 	= new NormalParticle[5000];
+
+
 void setup()
 {
 	size(500,500);
-	
+	for(int i=0; i<one.length; i++)
+	{
+		one[i]= new NormalParticle();
+	}
 }
 void draw()
 {
 	background(0);
-	one.show();
-	one.move();
+	for(int i=0; i<one.length; i++)
+	{
+		one[i].move();
+		one[i].show();
+	}
+	
+	
 }
 class NormalParticle
 {
@@ -19,15 +29,15 @@ class NormalParticle
 		myX=250;
 		myY=250;
 		dTheta=Math.PI*2*Math.random();
-		dSpeed=Math.random()*10;
+		dSpeed=Math.random()*5;
 		//clr=color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 	}
 
 	void show()
 	{
-		noStroke();
+		//noStroke();
 		fill(255,0,0);
-		ellipse((float)myX,(float)myY,2,2);
+		ellipse((float)myX,(float)myY,3,3);
 	}
 
 	void move()
