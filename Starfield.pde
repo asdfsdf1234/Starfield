@@ -1,4 +1,4 @@
-NormalParticle[] one 	= new NormalParticle[5000];
+Particle[] one 	= new Particle[500];
 
 
 void setup()
@@ -14,13 +14,14 @@ void draw()
 	background(0);
 	for(int i=0; i<one.length; i++)
 	{
-		one[i].move();
 		one[i].show();
+		one[i].move();
+		
 	}
 	
 	
 }
-class NormalParticle
+class NormalParticle implements Particle
 {
 	double myX, myY, dTheta, dSpeed;
 	int clr;
@@ -37,7 +38,7 @@ class NormalParticle
 	{
 		//noStroke();
 		fill(255,0,0);
-		ellipse((float)myX,(float)myY,3,3);
+		ellipse((float)myX,(float)myY,5,5);
 	}
 
 	void move()
@@ -49,11 +50,13 @@ class NormalParticle
 }
 interface Particle
 {
-	//your code here
+	public void move();
+	public void show();
+
 }
-class OddballParticle //uses an interface
+class OddballParticle// implements Particle
 {
-	//your code here
+
 }
 class JumboParticle //uses inheritance
 {
