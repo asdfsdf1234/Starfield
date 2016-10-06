@@ -11,7 +11,7 @@ void setup()
 	one[0]= new OddballParticle();
 	one[1]= new OddballParticle();
 	one[2]= new OddballParticle();
-	one[4]= new JumboParticle();
+	one[3]= new JumboParticle();
 }
 void draw()
 {
@@ -20,14 +20,26 @@ void draw()
 	{
 		one[i].show();
 		one[i].move();
-		for(int j=5; i<one.length; i++)
+
+		for(int k=0; k<3; k++)
 		{
-			if(((NormalParticle)one[j]).myX>510 ||((NormalParticle)one[j]).myY>510 )
+			if(((OddballParticle)one[k]).myX>510 ||((OddballParticle)one[k]).myY>510 || ((OddballParticle)one[k]).myX<0 || ((OddballParticle)one[k]).myY<0)
+			{
+				((OddballParticle)one[k]).myX=250;
+				((OddballParticle)one[k]).myY=250;
+				one[k].move();
+			}
+		}
+		for(int j=3; j<one.length; j++)
+		{
+			if(((NormalParticle)one[j]).myX>510 ||((NormalParticle)one[j]).myY>510 || ((NormalParticle)one[j]).myX<0 || ((NormalParticle)one[j]).myY<0)
 			{
 				((NormalParticle)one[j]).myX=250;
 				((NormalParticle)one[j]).myY=250;
+				one[j].move();
 			}
 		}
+		
 	}
 	
 	
